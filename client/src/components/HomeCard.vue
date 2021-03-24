@@ -42,7 +42,7 @@ export default {
           })
         }
         clearInterval(timing)
-      }, 300)
+      }, 1000)
     }
   },
   computed: {

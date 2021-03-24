@@ -40,6 +40,9 @@ export default new Vuex.Store({
     CLEAR_ERRORS (state, payload) {
       state.errors = []
     },
+    CLEAR_RESPONSE (state, payload) {
+      state.response = []
+    },
     SHOW_RESPONSE (state, payload) {
       state.response = payload
     },

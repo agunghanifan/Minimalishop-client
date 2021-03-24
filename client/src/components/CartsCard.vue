@@ -30,10 +30,12 @@ export default {
     plus (id) {
       this.$store.dispatch('operatorStock', { id, operator: 'plus' })
       this.fetchCartForCard()
+      this.alert()
     },
     minus (id) {
       this.$store.dispatch('operatorStock', { id, operator: 'minus' })
       this.fetchCartForCard()
+      this.alert()
     },
     deleteCart (id) {
       this.$swal.fire({
@@ -53,7 +55,6 @@ export default {
             'success'
           )
           this.fetchCartForCard()
-          this.alert()
         }
       })
     },
@@ -66,15 +67,9 @@ export default {
             text: this.errors
           })
           this.$store.commit('CLEAR_ERRORS')
-        } else {
-          this.$swal({
-            icon: 'success',
-            title: 'Congrats',
-            text: this.response
-          })
         }
         clearInterval(timing)
-      }, 300)
+      }, 1000)
     }
   },
   computed: {
