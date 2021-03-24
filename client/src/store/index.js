@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import router from '../router'
-const baseUrl = 'http://localhost:3000'
+// const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://cms-ecommerce-agungs.herokuapp.com'
 
 Vue.use(Vuex)
 
@@ -138,7 +139,6 @@ export default new Vuex.Store({
         }
       })
         .then((res) => {
-          console.log(res.data.message)
           context.commit('SHOW_RESPONSE', res.data.message)
         })
         .catch((err) => {
@@ -155,7 +155,6 @@ export default new Vuex.Store({
         }
       })
         .then((res) => {
-          console.log(res.data.message)
           context.commit('SHOW_RESPONSE', res.data.message)
         })
         .catch((err) => {
@@ -169,11 +168,10 @@ export default new Vuex.Store({
         method: 'get'
       })
         .then(({ data }) => {
-          console.log(data)
           context.commit('FETCH_BANNERS', data)
         })
         .catch((err) => {
-          console.log(err)
+          context.commit('SHOW_ERROR', err.response.data.message)
         })
     }
   },
